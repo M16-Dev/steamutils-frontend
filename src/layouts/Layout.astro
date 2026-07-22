@@ -1,0 +1,18 @@
+---
+import "@/styles/global.css";
+import { SITE } from "@/lib/config";
+---
+
+<html lang="pl" class="dark scroll-smooth scroll-pt-16">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{SITE.title}</title>
+		<meta name="description" content={SITE.description} />
+	</head>
+	<body class="bg-background text-foreground selection:bg-zinc-800 selection:text-zinc-100 min-h-screen flex flex-col">
+		<slot />
+	</body>
+</html>

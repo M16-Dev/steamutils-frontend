@@ -1,0 +1,20 @@
+---
+import { FeatureCarousel } from "@/components/FeatureCarousel";
+---
+
+<section id="demo" class="w-full min-h-[calc(100vh-4rem)] flex flex-col justify-center py-12 border-b border-border px-6 sm:px-10 lg:px-16 relative z-10 bg-background">
+    <div class="mx-auto max-w-7xl space-y-8">
+        <div class="text-center space-y-4 max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold tracking-tight sm:text-5xl text-foreground">
+                See it in action
+            </h2>
+            <p class="text-lg text-muted-foreground">
+                A quick look at how SteamUtils integrates with your community.
+            </p>
+        </div>
+        
+        <div class="px-4 sm:px-16">
+            <FeatureCarousel client:visible />
+        </div>
+    </div>
+</section>
