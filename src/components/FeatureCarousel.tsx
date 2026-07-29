@@ -11,16 +11,20 @@ import {
 
 const CAROUSEL_ITEMS = [
   {
-    title: "Link Account via Discord",
-    image: "https://placehold.co/1200x675/18181b/52525b?text=Account+Linking+GIF",
+    title: "Link Accounts",
+    image: "/featureCarousel/linkaccounts.webp",
   },
   {
-    title: "Interactive Player Panels",
-    image: "https://placehold.co/1200x675/18181b/52525b?text=Player+Panel+GIF",
+    title: "Player Info Panels",
+    image: "/featureCarousel/steaminfo.webp",
   },
   {
     title: "Server Live Monitoring",
-    image: "https://placehold.co/1200x675/18181b/52525b?text=Live+Monitoring+GIF",
+    image: "/featureCarousel/servertracker.webp",
+  },
+  {
+    title: "Manage Your Connections",
+    image: "/featureCarousel/connectionsmanage.webp",
   }
 ]
 
@@ -38,7 +42,7 @@ export function FeatureCarousel() {
   }, [api])
 
   return (
-    <div className="w-full max-w-3xl mx-auto flex flex-col gap-6">
+    <div className="w-full max-w-4xl mx-auto flex flex-col gap-6">
       <Carousel
         setApi={setApi}
         opts={{
@@ -47,13 +51,11 @@ export function FeatureCarousel() {
         }}
         className="w-full sm:**:data-[slot=carousel-content]:mask-[linear-gradient(to_right,transparent,black_10%_90%,transparent)]"
       >
-        <CarouselContent>
+        <CarouselContent className="py-1">
           {CAROUSEL_ITEMS.map((item, index) => (
-            <CarouselItem key={index} className="sm:basis-[80%]">
-              <div className="p-2 sm:p-4">
-                <div className="w-full rounded-2xl overflow-hidden aspect-video bg-card border border-border shadow-2xl">
-                   <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
-                </div>
+            <CarouselItem key={index} className="sm:basis-[85%]">
+              <div className="w-full rounded-2xl overflow-hidden aspect-video bg-[#070709] border border-border shadow-2xl flex items-center justify-center">
+                 <img src={item.image} alt={item.title} className="w-full h-full object-contain" />
               </div>
             </CarouselItem>
           ))}
