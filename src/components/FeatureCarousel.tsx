@@ -1,4 +1,5 @@
 import * as React from "react"
+import { cn } from "@/lib/utils"
 import {
   Carousel,
   CarouselContent,
@@ -44,27 +45,43 @@ export function FeatureCarousel() {
           align: "center",
           loop: true,
         }}
-        className="w-full"
+        className="w-full sm:**:data-[slot=carousel-content]:mask-[linear-gradient(to_right,transparent,black_10%_90%,transparent)]"
       >
         <CarouselContent>
           {CAROUSEL_ITEMS.map((item, index) => (
-            <CarouselItem key={index}>
-              <div className="p-2">
-                <div className="w-full rounded-2xl overflow-hidden aspect-video bg-zinc-900 shadow-2xl">
+            <CarouselItem key={index} className="sm:basis-[80%]">
+              <div className="p-2 sm:p-4">
+                <div className="w-full rounded-2xl overflow-hidden aspect-video bg-card border border-border shadow-2xl">
                    <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                 </div>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="hidden sm:flex -left-14 size-12 border-zinc-800 bg-zinc-950 hover:bg-zinc-800 hover:text-white [&_svg]:size-6" />
-        <CarouselNext className="hidden sm:flex -right-14 size-12 border-zinc-800 bg-zinc-950 hover:bg-zinc-800 hover:text-white [&_svg]:size-6" />
+        <CarouselPrevious className="hidden md:flex md:-left-14 size-12 border-border bg-card hover:bg-accent hover:text-accent-foreground [&_svg]:size-6" />
+        <CarouselNext className="hidden md:flex md:-right-14 size-12 border-border bg-card hover:bg-accent hover:text-accent-foreground [&_svg]:size-6" />
       </Carousel>
 
-      <div className="h-12 overflow-hidden flex items-start justify-center text-center px-4">
+      <div className="flex justify-center items-center gap-2">
+        {CAROUSEL_ITEMS.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => api?.scrollTo(index)}
+            aria-label={`Go to slide ${index + 1}`}
+            className={cn(
+              "h-2.5 rounded-full transition-all duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+              index === current
+                ? "w-8 bg-muted-foreground"
+                : "w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/60"
+            )}
+          />
+        ))}
+      </div>
+
+      <div className="min-h-16 sm:min-h-12 flex items-center justify-center text-center px-4">
          <h3 
            key={current}
-           className="text-2xl sm:text-3xl font-bold text-zinc-100 animate-in slide-in-from-bottom-6 fade-in duration-500"
+           className="text-xl sm:text-3xl font-bold text-foreground animate-in slide-in-from-bottom-4 fade-in duration-500 leading-tight"
          >
            {CAROUSEL_ITEMS[current]?.title}
          </h3>

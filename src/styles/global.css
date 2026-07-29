@@ -81,6 +81,12 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  
+  --holographic-1: oklch(0.72 0.22 325);
+  --holographic-2: oklch(0.75 0.18 235);
+  
+  --holographic-text-1: oklch(0.85 0.15 325);
+  --holographic-text-2: oklch(0.88 0.12 235);
 }
 
 .dark {
@@ -128,5 +134,51 @@
 
   html {
     @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .bg-holographic {
+    background-image: linear-gradient(to right, var(--holographic-text-1) 30%, oklch(1 0 0 / .3), var(--holographic-text-2) 70%);
+  }
+  .bg-holographic-text {
+    background-image: linear-gradient(to right, var(--holographic-text-1) 0%, var(--holographic-text-2) 100%);
+  }
+  .bg-conic-holographic {
+    background-image: conic-gradient(
+      from 0deg at 50% 50%,
+      var(--holographic-1) 0%,
+      oklch(1 0.01 0) 10%,
+      var(--holographic-2) 50%,
+      var(--holographic-1) 100%
+    );
+  }
+  .animate-hero-glow {
+    animation: hero-glow-pulse 10s ease-in-out infinite, gradient-flow 6s ease-in-out infinite;
+  }
+  .animate-hero-text {
+    animation: gradient-flow 6s ease-in-out infinite;
+  }
+}
+
+@theme {
+  @keyframes hero-glow-pulse {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.25;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.2);
+      opacity: 0.3;
+    }
+  }
+
+  @keyframes gradient-flow {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
 }

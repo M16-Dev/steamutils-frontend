@@ -1,27 +1,28 @@
 ---
 import { Button } from "@/components/ui/button";
-import { Plus, Terminal } from "lucide-react";
-import background from "@/assets/background.svg";
+import { AddBotPrimaryButton } from "@/components/ui/add-bot-primary-button";
+import { Terminal } from "lucide-react";
 import { LINKS } from "@/lib/config";
 ---
 
-<section id="hero" class="relative overflow-hidden flex border-b border-border min-h-[calc(100vh-4rem)] w-full flex-col items-center justify-center px-4 text-center">
-    <img src={background.src} alt="" class="absolute m-auto blur-[128px] opacity-20 saturate-200 pointer-events-none -z-10" />
-    <div class="max-w-3xl space-y-6">
-        <h1 class="text-5xl font-extrabold mb-8 sm:text-6xl bg-linear-to-b from-white to-zinc-400 bg-clip-text text-transparent">
+<section id="hero" class="relative overflow-hidden flex border-b border-border min-h-[calc(100vh-4rem)] w-full flex-col items-center justify-center px-4 text-center scroll-reveal opacity-0 translate-y-8 transition-all duration-1000 ease-out">
+    <div class="max-w-4xl space-y-8">
+        <h1 class="tracking-tight sm:tracking-normal text-4xl font-extrabold sm:text-6xl sm:space-y-2 bg-linear-to-b from-white to-zinc-300 bg-clip-text text-transparent">
             Steam and Discord
-            <br class="mb-2"/>
-            <span class="bg-linear-to-r from-indigo-300 to-sky-200 bg-clip-text">Perfectly Integrated</span>
+            <br/>
+            <span class="relative inline-block">
+                <span class="absolute top-1/2 left-1/2 w-[150%] h-48 bg-holographic blur-[128px] rounded-full pointer-events-none -z-10 animate-hero-glow bg-size-[120%_auto]"></span>
+                <span class="bg-holographic-text bg-size-[120%_auto] animate-hero-text bg-clip-text text-transparent">Perfectly Integrated</span>
+            </span>
         </h1>
-        <p class="mx-auto max-w-2xl text-xl sm:text-2xl text-zinc-400">
-            Seamlessly integrate your Garry's Mod servers with Discord to enhance your gaming community!
+        <p class="mx-auto max-w-sm sm:max-w-xl text-lg sm:text-xl text-muted-foreground">
+            Seamlessly integrate your Garry's Mod servers with Discord<br class="hidden sm:inline"/> to enhance your gaming community!
         </p>
         <div class="flex justify-center gap-4 pt-4">
             <a href={LINKS.botInviteUrl}>
-                <Button client:load size="xl" className="cursor-pointer font-semibold">
-                    <Plus className="size-5" />
+                <AddBotPrimaryButton client:load>
                     Add to server
-                </Button>
+                </AddBotPrimaryButton>
             </a>
             <a href={LINKS.docsUrl}>
                 <Button client:load size="xl" variant="outline" className="cursor-pointer">
