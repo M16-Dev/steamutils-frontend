@@ -18,11 +18,11 @@ export function AddBotPrimaryButton({
   return (
     <AnimatedGradientWrapper 
       baseBorderOpacity="opacity-100"
-      className="inline-flex cursor-pointer group/btn hover:-translate-y-px hover:brightness-125 transition-all duration-300"
+      className="inline-flex group/btn hover:-translate-y-px hover:brightness-125 transition-all duration-300"
     >
       <Button
         size={size}
-        className={`font-semibold border-0 rounded-[12px] hover:bg-primary shadow-none ${className || ""}`}
+        className={`font-semibold border-0 rounded-[12px] cursor-pointer hover:bg-primary shadow-none ${className || ""}`}
         {...props}
       >
         {showIcon && (

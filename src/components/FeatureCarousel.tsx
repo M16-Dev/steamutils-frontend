@@ -60,8 +60,8 @@ export function FeatureCarousel() {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="hidden md:flex md:-left-14 size-12 border-border bg-card hover:bg-accent hover:text-accent-foreground [&_svg]:size-6" />
-        <CarouselNext className="hidden md:flex md:-right-14 size-12 border-border bg-card hover:bg-accent hover:text-accent-foreground [&_svg]:size-6" />
+        <CarouselPrevious className="hidden md:flex md:-left-14 cursor-pointer size-12 border-border bg-card hover:bg-accent hover:text-accent-foreground [&_svg]:size-6" />
+        <CarouselNext className="hidden md:flex md:-right-14 cursor-pointer size-12 border-border bg-card hover:bg-accent hover:text-accent-foreground [&_svg]:size-6" />
       </Carousel>
 
       <div className="flex justify-center items-center gap-2">
